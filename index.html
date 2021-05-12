@@ -9,43 +9,43 @@
 
 
   <div class="keys">
-    <div data-key="65" class="key" onclick="clickable()">
+    <div data-key="65" class="key" onclick="clickable(65)">
       <kbd>A</kbd>
       <span class="sound">E</span>
     </div>
-    <div data-key="83" class="key" onclick="clickable()">
+    <div data-key="83" class="key" onclick="clickable(83)">
       <kbd>S</kbd>
       <span class="sound">F</span>
     </div>
-    <div data-key="68" class="key" onclick="clickable()">
+    <div data-key="68" class="key" onclick="clickable(68)">
       <kbd>D</kbd>
       <span class="sound">G</span>
     </div>
-    <div data-key="70" class="key" onclick="clickable()">
+    <div data-key="70" class="key" onclick="clickable(70)">
       <kbd>F</kbd>
       <span class="sound">A</span>
     </div>
-    <div data-key="71" class="key" onclick="clickable()">
+    <div data-key="71" class="key" onclick="clickable(71)">
       <kbd>G</kbd>
       <span class="sound">B</span>
     </div>
-    <div data-key="72" class="key" onclick="clickable()">
+    <div data-key="72" class="key" onclick="clickable(72)">
       <kbd>H</kbd>
       <span class="sound">C</span>
     </div>
-    <div data-key="74" class="key" onclick="clickable()">
+    <div data-key="74" class="key" onclick="clickable(74)">
       <kbd>J</kbd>
       <span class="sound">D</span>
     </div>
-    <div data-key="75" class="key" onclick="clickable()">
+    <div data-key="75" class="key" onclick="clickable(75)">
       <kbd>K</kbd>
       <span class="sound">E</span>
     </div>
-    <div data-key="76" class="key" onclick="clickable()">
+    <div data-key="76" class="key" onclick="clickable(76)">
       <kbd>L</kbd>
       <span class="sound">F</span>
     </div>
-    <div data-key="186" class="key" onclick="clickable()">
+    <div data-key="186" class="key" onclick="clickable(186)">
       <kbd>;</kbd>
       <span class="sound">G</span>
     </div>
@@ -85,12 +85,18 @@
   input.forEach(input => input.addEventListener('transitionend', removeClass)); //listen for end transition. call removeCall function
 
   // on click, background changes color
-  const userClick = document.querySelectorAll('.key');
-   function clickable() {
-    // document.body.style.backgroundColor = "lavender";
+
+   function clickable(e) {
+    const sound = document.querySelector(`audio[data-key="${e}"]`);
+    const key = document.querySelector(`.key[data-key="${e}"]`);
+    sound.currentTime = 0;
+    sound.play();
+    //make rando number hex
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
     document.body.style.backgroundColor = "#" + randomColor;
-    console.log(randomColor);
+    // console.log(randomColor);
+    key.classList.add('active');//add css class
+
   }
 
 
