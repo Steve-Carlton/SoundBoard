@@ -33,7 +33,7 @@ body,html {
 
 .key {
   border: .4rem solid grey;
-  border-radius: .5rem;
+  border-radius: 15rem;
   margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
@@ -51,11 +51,6 @@ body,html {
   box-shadow: 0 0 1rem violet;
 }
 
-.playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
-}
 
 kbd {
   display: block;
@@ -66,5 +61,5 @@ kbd {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: .1rem;
-  color: #ffc600;
+  color: pink;
 }
